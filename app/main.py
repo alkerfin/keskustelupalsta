@@ -17,7 +17,7 @@ esineet.append(Item("Neljäs"))
   
 @app.route("/")
 def hello():
-    return render_template("index.html")
+    return render_template("frontpage.html")
 
 @app.route("/demo")
 def content():
