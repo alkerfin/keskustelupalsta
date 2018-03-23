@@ -1,84 +1,20 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <title>Foorumi</title>
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    <link type="text/css" href="static/style.css" rel="stylesheet"/>
-    <meta charset="utf-8"/>
-  </head>
-  <body>
-    <div class="page">
-      <div class="alert success"><b>Onnistui!</b> Jokin onnistui</div>
-      <div class="alert info"><b>Tietoa!</b> Jotain tapahtui</div>
-      <div class="alert error"><b>Virhe!</b> Jokin ei onnistunut</div>
-      <div class="header">
-        <div class="logo"><img src="logo.png" alt="logo"/></div>
-        <div class="navigation">
-          <ul>
-            <li><a href="/">Etusivu</a></li>
-            <li><a href="#" onclick="openModal("/login");">Kirjautu tai luo tunnus</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="content">
+        {% extends "layout.html" %}
+
+        {% block content %}
         <div class="topic">Kategoriat</div>
+        {% for category in categories %}
         <div class="category">
             <div class="topics">
-              <a href="category.html"><div class="topic">Testikategoria</div></a>
-              <div class="subtopic">Täällä keskustellaan kaikesta</div>
+              <a href="category/{{category.id}}"><div class="topic">{{category.topic}}</div></a>
+              <div class="subtopic">{{category.description}}</div>
             </div>
             <div class="right-info">
               <div class="information">
-                <div class="smalltext">Last activity : AlkeR</div>
-                <div class="smalltext">14.03.2018 17:00</div>
+                <div class="smalltext"></div>
+                  <div class="smalltext"><a href="/category/edit/{{category.id}}">Muokkaa</a> </div>
               </div>
             </div>
             <div style="clear:both;"></div>
         </div>
-        <div class="category">
-            <div class="topics">
-              <a href="category.html"><div class="topic">Testikategoria</div></a>
-              <div class="subtopic">Täällä keskustellaan kaikesta</div>
-            </div>
-            <div class="right-info">
-              <div class="information">
-                <div class="smalltext">Last activity : AlkeR</div>
-                <div class="smalltext">14.03.2018 17:00</div>
-              </div>
-            </div>
-            <div style="clear:both;"></div>
-        </div>
-        <div class="category">
-            <div class="topics">
-              <a href="category.html"><div class="topic">Testikategoria</div></a>
-              <div class="subtopic">Täällä keskustellaan kaikesta</div>
-            </div>
-            <div class="right-info">
-              <div class="information">
-                <div class="smalltext">Last activity : AlkeR</div>
-                <div class="smalltext">14.03.2018 17:00</div>
-              </div>
-            </div>
-            <div style="clear:both;"></div>
-        </div>
-        <div class="category">
-            <div class="topics">
-              <a href="category.html"><div class="topic">Testikategoria</div></a>
-              <div class="subtopic">Täällä keskustellaan kaikesta</div>
-            </div>
-            <div class="right-info">
-              <div class="information">
-                <div class="smalltext">Last activity : AlkeR</div>
-                <div class="smalltext">14.03.2018 17:00</div>
-              </div>
-            </div>
-            <div style="clear:both;"></div>
-        </div>
-      </div>
-      <div class="footer">
-        <div class="copyright-holder"> &copy copyright Aleksi Tanskanen ( 014806025 )</div>
-        <div class="admin-link"><a href="#">Admin</a></div>
-      </div>
-    </div>
-  </body>
-</html>
+        {% endfor %}
+        {% endblock %}
