@@ -1,0 +1,100 @@
+html,body {
+  width:100%;
+  margin:0em;
+  padding:0em;
+  backgound-color:#E3E3E3;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.page {
+  width:80%;
+  padding-left:10%;
+  padding-right:10%;
+  margin-top:2em;
+}
+
+.alert {
+  width:99%;
+  padding-left:1%;
+  padding-top:0.25em;
+  padding-bottom:0.25em;
+  margin-top:0.25em;
+  margin-left:0.25em;
+  border-radius:5px;
+  color:#fff;
+}
+
+.success {
+  background-color:#00BA00;
+  border:1px solid #42A142;
+}
+
+.error {
+  background-color:#BA0000;
+  border:1px solid #853C3C;
+}
+
+.info {
+  background-color:#0095FF;
+  border:1px solid #004678;
+}
+
+.content > .topic {
+  padding-top:0.7em;
+  padding-bottom:0.7em;
+  padding-left:1%;
+  font-size:1.2em;
+  border-radius:5px;
+  border:1px solid black;
+  width:99%;
+  background-color:#5194C4;
+}
+
+.category {
+  width:99%;
+  padding-left:1%;
+  padding-top:0.25em;
+  background-color:#fff;
+  padding-bottom:0.25em;
+  border-bottom:1px solid black;
+  border-left:1px solid black;
+  border-right:1px solid black;
+}
+.category > .information {
+  display:block;
+  float:left;
+}
+
+.category > .topics {
+  display:block;
+  float:left;
+  width:85%;
+}
+
+.information > .smalltext {
+  display:block;
+  float:left;
+  font-size:0.8em;
+  color:grey;
+  margin-left:0.1em;
+}
+
+.category > .right-info {
+  display:block;
+  float:left;
+
+}
+
+.topics > .topic {
+  font-size:1.1em;
+}
+
+.footer > .copyright-holder {
+  display:block;
+  float:left;
+}
+.footer > .admin-link {
+  display:block;
+  float:right;
+  font-size:0.8em;
+}
