@@ -5,5 +5,5 @@ Ominaisuuksiltaan keskustelupalsta tulee sisältämään käyttäjän luonnin / 
 
 ## Oleelliset linkit
 [Heroku linkki](http://forum-at.herokuapp.com/)
-[Käyttäjätarinat]()
-[Tietokantakaavio]()
+[Käyttäjätarinat](https://github.com/alkerfin/keskustelupalsta/blob/master/doc/userstories)
+[Tietokantakaavio](https://github.com/alkerfin/keskustelupalsta/blob/master/doc/tietokantakaavio.png)
