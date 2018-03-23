@@ -1,7 +1,8 @@
         {% extends "layout.html" %}
 
         {% block content %}
-        <div class="topic">Kategoriat</div>
+
+        <div class="topic">Kategoriat <span style="display:block;float:right;font-size:0.8em;"><a href="/category/add">Lisää</a></span></div>
         {% for category in categories %}
         <div class="category">
             <div class="topics">
