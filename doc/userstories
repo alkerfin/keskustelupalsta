@@ -1,0 +1,11 @@
+Normaalikäyttäjänä voin vastailla viestiketjuihin sekä luoda omia viestiketjuja.
+
+Admin käyttäjänä voin muokata keskustelupalstan asetuksia.
+
+Admin käyttäjänä voin muokata,lisätä sekä poistaa keskustelualueiden kategorioita.
+
+Admin käyttäjänä voin antaa käyttäjille varoituksia tai porttikieltoja.
+
+Admin käyttäjänä voin poistaa viestiketjua, viestejä sekä tarpeen tullen muokata niitä.
+
+Ilman oikeuksia voin lukea niitä keskustelualueita ja niiden viestiketjuja jotka admin on minulle sallinu.
