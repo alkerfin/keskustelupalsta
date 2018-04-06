@@ -8,10 +8,10 @@
 
   <div class="topics">
    <form method="POST" action="">
-    Aihe<br/>
-    <input type="text" name="topic"/><br/>
-    Kuvaus<br/>
-    <input type="text" name="description"/><br/>
+    {{ form.name.label }}<br/>
+    {{ form.name }}<br/>
+    {{ form.description.label }}<br/>
+    {{ form.description }}<br/>
     <input type="submit" value="Tallenna"/><br/>
   </form>
  </div>

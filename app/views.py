@@ -1,6 +1,7 @@
 from flask import render_template,request
 from app import app,db
 from app.include.classes.category import *
+from app.include.forms import CategoryForm
   
 @app.route("/")
 def frontpage():
@@ -13,7 +14,7 @@ def category_view():
 
 @app.route("/category/add/")
 def addCategory():
-    return render_template("add_category.html",success="none")
+    return render_template("add_category.html",form=CategoryForm(),success="none")
 
 @app.route("/category/add/",methods=["POST"])
 def addCategory_post():
