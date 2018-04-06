@@ -18,7 +18,12 @@ def addCategory():
 
 @app.route("/category/add/",methods=["POST"])
 def addCategory_post():
-    c = Category(request.form.get("topic"),request.form.get("description"),-1)
+    form = CategoryForm(request.form)
+    c = Category(form.name.data,form.description.data,-1)
+
+    if not form.validate()
+	return render_template("add_category",form=form,success="none")
+
     db.session().add(c)
     db.session().commit()
     return render_template("add_category.html",success="block")
