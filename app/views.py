@@ -14,6 +14,7 @@ def category_view():
 
 @app.route("/category/add/")
 def addCategory():
+    form = CategoryForm()
     return render_template("add_category.html",form=CategoryForm(),success="none")
 
 @app.route("/category/add/",methods=["POST"])
@@ -21,12 +22,12 @@ def addCategory_post():
     form = CategoryForm(request.form)
     c = Category(form.name.data,form.description.data,-1)
 
-    if not form.validate()
-	return render_template("add_category",form=form,success="none")
+    if not form.validate():
+        return render_template("add_category",form=form,success="none")
 
     db.session().add(c)
     db.session().commit()
-    return render_template("add_category.html",success="block")
+    return render_template("add_category.html",success="block",form=form)
 
 @app.route("/category/edit/")
 def editCategory():

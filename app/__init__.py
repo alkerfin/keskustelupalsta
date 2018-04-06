@@ -9,6 +9,6 @@ db = SQLAlchemy(app)
 
 from app.include.classes.category import *
 from app import views
-
+from app.auth import models
 
 db.create_all()
