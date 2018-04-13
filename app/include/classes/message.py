@@ -7,8 +7,7 @@ class Message(db.Model)
 	topic = db.Column(db.String(40))
 	body = db.Column(db.String(500))
 
-	def __init__(self,id,cat,msg,user,topic,body):
-		self.id = id
+	def __init__(self,cat,msg,user,topic,body):
 		self.cat_parent = cat
 		self.msg_parent = msg
 		self.user_id = user

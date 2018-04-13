@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<ul>
+	{% for error in form.name.errors %}
+	<li>{{ error }}</li>
+	{% endfor %}
+</ul>
+<div class="alert success" style="display:{{success}};"><b>Onnistui!</b> Viestiketju lisätty</div><br/>
+<div class="topic">Lisää viestiketju</div>
+
+<div class="category">
+
+  <div class="topics">
+   <form method="POST" action="">
+    {{ form.topic.label }}<br/>
+    {{ form.topic }}<br/>
+    {{ form.body.label }}<br/>
+    {{ form.body }}<br/>
+    <input type="submit" value="Tallenna"/><br/>
+  </form>
+ </div>
+ <div style="clear:both;"></div>
+</div>
+{% endblock %}

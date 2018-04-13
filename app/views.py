@@ -25,7 +25,7 @@ def addCategory_post():
     c = Category(form.name.data,form.description.data,-1)
 
     if not form.validate():
-        return render_template("add_category",form=form,success="none")
+        return render_template("add_category.html",form=form,success="none")
 
     db.session().add(c)
     db.session().commit()
@@ -51,12 +51,37 @@ def thread():
     id = request.args.get("id")
     pagenm = request.args.get("page")
     messages = Message.query.filter_by(msg_parent=id).all()
-    return render_template("thread.html",Form=WriteMessage(),messages=messages)
+    return render_template("thread.html",Form=WriteMessage(),id=id,messages=messages)
 
-@app.route("/message/add")
-def sendMessage():
+@app.route("/thread/add/")
+def threadAdd():
+    id = request.args.get("id")
+    return render_template("add_thread.html",form=WriteTopic())
+
+@app.route("/thread/add/",methods=["POST"])
+def threadAdd_post():
+    id = request.args.get("id")
+    form = WriteTopic(request.form)
+    m = Message(id,-1,-1,form.topic.data,form.body.data)
+
+    if not form.validate():
+        return render_template("add_thread.html",form=form,success="none")
+
+    db.session().add(m)
+    db.session().commit()    
+    return render_template("add_thread.html",form=WriteTopic(),success="block")
+
+@app.route("/message/add",methods=["POST"])
+def sendMessage_post():
+    form = WriteMessage(request.form)
     parent = request.args.get("parent")
-    return render_template("index.html")
+    m = Message(-99,parent,-1,form.topic.data,form.body.data)
+
+    if not form.validate()
+	return redirect("")
+    db.session().add(m)
+    db.session().commit()
+    return redirect("/thread/?id="+parent)
 
 @app.route("/message/edit")
 def editMessage():

@@ -1,0 +1,22 @@
+        {% extends "layout.html" %}
+
+        {% block content %}
+
+        <div class="topic">Viestiketju</div>
+        {% for message in messages %}
+        <div class="category">
+            <div class="topics">
+              <div class="topic">{{message.topic}}</div>
+            </div>
+	    <p>{{message.body}}</p>
+            <div style="clear:both;"></div>
+        </div>
+        {% endfor %}
+	<form method="POST" action="/message/add?parent={{id}}">
+	 {{ form.topic.label }}<br/>
+	 {{ form.topic }}<br/>
+	 {{ form.body.label }}<br/>
+	 {{ form.body }}<br/>
+	 <input type="submit" value="Tallenna"/><br/>
+	</form>
+        {% endblock %}
