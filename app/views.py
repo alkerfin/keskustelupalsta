@@ -1,7 +1,8 @@
 from flask import render_template,request
 from app import app,db
 from app.include.classes.category import *
-from app.include.forms import CategoryForm
+from app.include.classes.message import *
+from app.include.forms import CategoryForm,WriteMessage
   
 @app.route("/")
 def frontpage():
@@ -10,7 +11,8 @@ def frontpage():
 @app.route("/category/")
 def category_view():
     id = request.args.get("id")
-    return render_template("category.html")
+    messages = Message.query.filter_by(msg_parent=-1).all()
+    return render_template("category.html",messages=messages)
 
 @app.route("/category/add/")
 def addCategory():
@@ -47,7 +49,9 @@ def editCategory_post():
 @app.route("/thread/")
 def thread():
     id = request.args.get("id")
-    return render_template("thread.html")
+    pagenm = request.args.get("page")
+    messages = Message.query.filter_by(msg_parent=id).all()
+    return render_template("thread.html",Form=WriteMessage(),messages=messages)
 
 @app.route("/message/add")
 def sendMessage():
