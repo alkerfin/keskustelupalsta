@@ -2,7 +2,7 @@ from flask import render_template,request
 from app import app,db
 from app.include.classes.category import *
 from app.include.classes.message import *
-from app.include.forms import CategoryForm,WriteMessage,WriteTopic
+from app.include.forms import *
   
 @app.route("/")
 def frontpage():
@@ -51,7 +51,7 @@ def thread():
     id = request.args.get("id")
     pagenm = request.args.get("page")
     messages = Message.query.filter_by(msg_parent=id).all()
-    return render_template("thread.html",Form=WriteMessage(),id=id,messages=messages)
+    return render_template("thread.html",Form=WriteTopic(),id=id,messages=messages)
 
 @app.route("/thread/add/")
 def threadAdd():
@@ -73,7 +73,7 @@ def threadAdd_post():
 
 @app.route("/message/add",methods=["POST"])
 def sendMessage_post():
-    form = WriteMessage(request.form)
+    form = WriteTopic(request.form)
     parent = request.args.get("parent")
     m = Message(-99,parent,-1,form.topic.data,form.body.data)
 

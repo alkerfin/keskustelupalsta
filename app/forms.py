@@ -8,6 +8,7 @@ class CategoryForm(FlaskForm):
 	class Meta:
 		csrf = False
 
+
 class WriteTopic(FlaskForm):
 	topic = StringField("Otsikko")
 	body = StringField("Viesti")
@@ -16,9 +17,3 @@ class WriteTopic(FlaskForm):
 	class Meta:
 		csrf = False
 
-class WriteMessage(FlaskForm):
-	topic = StringField("Otsikko")
-	body = StringField("Viesti")
-	
-	class Meta:
-		csrf = False

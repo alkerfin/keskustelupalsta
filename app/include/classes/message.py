@@ -1,5 +1,5 @@
 from app import db
-class Message(db.Model)
+class Message(db.Model):
 	id = db.Column(db.Integer,primary_key=True)
 	cat_parent = db.Column(db.Integer)
 	msg_parent = db.Column(db.Integer)

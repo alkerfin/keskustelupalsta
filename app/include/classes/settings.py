@@ -1,5 +1,5 @@
 from app import db
-class Settings(db.Model)
+class Settings(db.Model):
 	keyname = db.Column(db.String(40),primary_key=True)
 	keyvalue = db.Column(db.String(40),nullable=False)
 	
