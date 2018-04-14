@@ -2,7 +2,7 @@ from flask import render_template,request
 from app import app,db
 from app.include.classes.category import *
 from app.include.classes.message import *
-from app.include.forms import CategoryForm,WriteMessage
+from app.include.forms import CategoryForm,WriteMessage,WriteTopic
   
 @app.route("/")
 def frontpage():
@@ -77,8 +77,9 @@ def sendMessage_post():
     parent = request.args.get("parent")
     m = Message(-99,parent,-1,form.topic.data,form.body.data)
 
-    if not form.validate()
-	return redirect("")
+    if not form.validate():
+       return redirect("")
+
     db.session().add(m)
     db.session().commit()
     return redirect("/thread/?id="+parent)
