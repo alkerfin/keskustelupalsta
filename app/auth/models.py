@@ -12,6 +12,9 @@ class User(db.Model):
     name = db.Column(db.String(144), nullable=False)
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
+    role = db.Column(db.Int,default=0)
+    email = db.Column(db.String(144),nullable=False)
+    salt = db.Column(db.String(144), nullable=False)
 
     def __init__(self, name, username, password):
         self.name = name
@@ -26,6 +29,10 @@ class User(db.Model):
 
     def is_anonymous(self):
         return False
+
+#TODO : To use role AND roleRules database table
+    def is_allowed_object(self,obj)
+        return True
 
     def is_authenticated(self):
         return True
