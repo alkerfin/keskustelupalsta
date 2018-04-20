@@ -16,7 +16,11 @@
         <div class="navigation">
           <ul>
             <li><a href="/">Etusivu</a></li>
-            <li><a href="#" onclick="openModal("/login");">Kirjautu tai luo tunnus</a></li>
+              {% if current_user.is_authenticated %}
+              <li>Hei, {{ current_user.name }}!</li>
+              {% else %}
+                <li><a href="#" onclick="openModal("auth/login");">Kirjautu tai luo tunnus</a></li>
+              {% endif %}
           </ul>
         </div>
       </div>
@@ -25,6 +29,7 @@
       {% block content %}
 
       {% endblock %}
+
       <div class="footer">
         <div class="copyright-holder"> &copy copyright Aleksi Tanskanen ( 014806025 )</div>
         <div class="admin-link"><a href="#">Admin</a></div>
