@@ -6,7 +6,7 @@ from app.include.classes.category import *
 from app.include.classes.message import *
 
 from app.include.forms import *
-  
+
 @app.route("/")
 def frontpage():
     return render_template("frontpage.html",categories=Category.query.all())
@@ -71,7 +71,7 @@ def threadAdd_post():
         return render_template("add_thread.html",form=form,success="none")
 
     db.session().add(m)
-    db.session().commit()    
+    db.session().commit()
     return render_template("add_thread.html",form=WriteTopic(),success="block")
 
 @app.route("/message/add",methods=["POST"])
@@ -91,10 +91,6 @@ def sendMessage_post():
 def editMessage():
     return render_template("index.html")
 
-@app.route("/login/")
-def login():
-    return render_template("login.html")
-
 @app.route("/signup/")
 def signup():
     return render_template("signup.html")
@@ -103,4 +99,3 @@ def signup():
 @app.route("/demo")
 def content():
     return render_template("demo.html", nimi=nimi, lista=lista, esineet=esineet)
-

@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="alert success" style="display:{{success}};"><b>Onnistui!</b> Kategoria lisätty</div><br/>
+<div class="topic">Luo tunnus</div>
+
+<div class="category">
+
+  <div class="topics">
+   <form method="POST" action="">
+    {form.username.label}<br/>
+    {form.username}<br/>
+    {form.password.label}<br/>
+    {form.password}<br/>
+    {form.password2.label}<br/>
+    {form.password2}<br/>
+    <input type="submit" value="Tallenna"/><br/>
+  </form>
+ </div>
+ <div style="clear:both;"></div>
+</div>
+{% endblock %}
