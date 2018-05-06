@@ -3,7 +3,7 @@ from app import db
 class User(db.Model):
     __tablename__ = "account"
 
-	
+
     id = db.Column(db.Integer, primary_key=True)
     date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
     date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(),
@@ -20,7 +20,7 @@ class User(db.Model):
         self.name = name
         self.username = username
         self.password = password
-  
+
     def get_id(self):
         return self.id
 
@@ -31,7 +31,7 @@ class User(db.Model):
         return False
 
 #TODO : To use role AND roleRules database table
-    def is_allowed_object(self,obj)
+    def is_allowed_object(self,obj):
         return True
 
     def is_authenticated(self):
