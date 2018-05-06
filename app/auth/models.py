@@ -12,7 +12,7 @@ class User(db.Model):
     name = db.Column(db.String(144), nullable=False)
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
-    role = db.Column(db.Int,default=0)
+    role = db.Column(db.Integer,default=0)
     email = db.Column(db.String(144),nullable=False)
     salt = db.Column(db.String(144), nullable=False)
 
