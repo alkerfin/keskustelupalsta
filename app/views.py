@@ -15,8 +15,9 @@ def frontpage():
 @app.route("/category/")
 def category_view():
     id = request.args.get("id")
+    category = Category.query.filter_by(id=id).one_or_none()
     threads = Thread.query.filter_by(cat_id=id).all()
-    return render_template("category.html",threads=threads)
+    return render_template("category.html",category=category,id=id,threads=threads)
 
 @app.route("/category/add/")
 def addCategory():
@@ -55,18 +56,18 @@ def thread():
     id = request.args.get("id")
     pagenm = request.args.get("page")
     messages = Message.query.filter_by(msg_parent=id).all()
-    return render_template("thread.html",Form=WriteTopic(),id=id,messages=messages)
+    return render_template("thread.html",id=id,messages=messages)
 
 @app.route("/thread/add/")
 def threadAdd():
     id = request.args.get("id")
-    return render_template("add_thread.html",form=WriteTopic())
+    return render_template("add_thread.html",form=WriteTopic(id),success="none")
 
 @app.route("/thread/add/",methods=["POST"])
 def threadAdd_post():
     id = request.args.get("id")
     form = WriteTopic(request.form)
-    m = Message(id,-1,-1,form.topic.data,form.body.data)
+    m = Thread(-1,id,request.form.get("topic"),request.form.get("body"))
 
     if not form.validate():
         return render_template("add_thread.html",form=form,success="none")

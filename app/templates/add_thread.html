@@ -3,9 +3,12 @@
 {% block content %}
 
 <ul>
-	{% for error in form.name.errors %}
+	{% for error in form.topic.errors %}
 	<li>{{ error }}</li>
 	{% endfor %}
+		{% for error in form.body.errors %}
+		<li>{{ error }}</li>
+		{% endfor %}
 </ul>
 <div class="alert success" style="display:{{success}};"><b>Onnistui!</b> Viestiketju lisätty</div><br/>
 <div class="topic">Lisää viestiketju</div>
