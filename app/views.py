@@ -15,7 +15,7 @@ def frontpage():
 @app.route("/category/")
 def category_view():
     id = request.args.get("id")
-    messages = Thread.query.filter_by(cat_id=id).all()
+    threads = Thread.query.filter_by(cat_id=id).all()
     return render_template("category.html",threads=threads)
 
 @app.route("/category/add/")

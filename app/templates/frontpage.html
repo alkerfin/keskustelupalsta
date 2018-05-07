@@ -6,13 +6,13 @@
         {% for category in categories %}
         <div class="category">
             <div class="topics">
-              <a href="category/{{category.id}}"><div class="topic">{{category.topic}}</div></a>
+              <a href="category/?id={{category.id}}"><div class="topic">{{category.topic}}</div></a>
               <div class="subtopic">{{category.description}}</div>
             </div>
             <div class="right-info">
               <div class="information">
                 <div class="smalltext"></div>
-                  <div class="smalltext"><a href="/category/edit/{{category.id}}">Muokkaa</a> </div>
+                  <div class="smalltext"><a href="/category/edit/?id={{category.id}}">Muokkaa</a> </div>
               </div>
             </div>
             <div style="clear:both;"></div>
