@@ -20,7 +20,8 @@
               {% if current_user.is_authenticated %}
               <li>Hei, {{ current_user.name }}!</li>
               {% else %}
-                <li><a href="#" onclick="openModal("auth/login");">Kirjautu tai luo tunnus</a></li>
+                <li><a href="auth/login">Kirjaudu</a></li>
+                <li><a href="auth/signup">Luo tunnus</a></li>
               {% endif %}
           </ul>
         </div>

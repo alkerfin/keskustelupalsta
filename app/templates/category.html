@@ -1,0 +1,15 @@
+        {% extends "layout.html" %}
+
+        {% block content %}
+
+        <div class="topic">Viestiketju</div>
+        {% for thread in threads %}
+        <div class="category">
+            <div class="topics">
+              <div class="topic">{{thread.header}}</div>
+            </div>
+	           <p>{{thread.body}}</p>
+            <div style="clear:both;"></div>
+        </div>
+        {% endfor %}
+        {% endblock %}

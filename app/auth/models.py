@@ -30,9 +30,10 @@ class User(db.Model):
     def is_anonymous(self):
         return False
 
-#TODO : To use role AND roleRules database table
+    #TODO : To use role AND roleRules database table
     def is_allowed_object(self,obj):
-        return True
+        cHelper = CrudHelper(self.id)
+        return cHelper.isAllowed(obj)
 
     def is_authenticated(self):
         return True

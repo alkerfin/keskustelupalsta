@@ -4,6 +4,7 @@ from flask_login import login_user
 
 from app.include.classes.category import *
 from app.include.classes.message import *
+from app.include.classes.thread import *
 
 from app.include.forms import *
 
@@ -14,8 +15,8 @@ def frontpage():
 @app.route("/category/")
 def category_view():
     id = request.args.get("id")
-    messages = Message.query.filter_by(msg_parent=-1).all()
-    return render_template("category.html",messages=messages)
+    messages = Thread.query.filter_by(cat_id=id).all()
+    return render_template("category.html",threads=threads)
 
 @app.route("/category/add/")
 def addCategory():
